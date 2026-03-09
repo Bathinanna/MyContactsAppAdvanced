@@ -4,6 +4,7 @@ import com.mycontactsapp.exception.*;
 import com.mycontactsapp.factory.*;
 import com.mycontactsapp.model.*;
 import com.mycontactsapp.util.*;
+import com.mycontactsapp.repository.*;
 
 public class RegistrationService {
 
@@ -18,7 +19,7 @@ public class RegistrationService {
 
         // Validate password strength
         if (!ValidationUtil.isValidPassword(password)) {
-            throw new InvalidInputException("Password must be at least 6 characters");
+            throw new InvalidInputException("Weak Password. Must contain atleast one Uppercase, one Lowercase, one Digit and one Special Character");
         }
 
         // Hash password before storing
@@ -31,6 +32,9 @@ public class RegistrationService {
                 .setPasswordHash(passwordHash);
 
         // Create user using factory
-        return UserFactory.createUser(type, builder);
+        User user = UserFactory.createUser(type, builder);
+        // save user to repository
+        UserRepository.save(user);
+        return user;
     }
 }
