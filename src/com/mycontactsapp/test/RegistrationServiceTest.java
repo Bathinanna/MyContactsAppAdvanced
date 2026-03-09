@@ -1,4 +1,4 @@
-package com.mycontactsapp.service;
+package com.mycontactsapp.test;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.mycontactsapp.exception.*;
 import com.mycontactsapp.model.*;
+import com.mycontactsapp.service.RegistrationService;
 
 public class RegistrationServiceTest {
 
