@@ -1,6 +1,7 @@
 package com.mycontactsapp.model;
 
 import java.util.UUID;
+import java.util.*;
 
 public abstract class User {
 
@@ -36,6 +37,29 @@ public abstract class User {
     // Returns name
     public String getName() {
         return name;
+    }
+    
+ // update user name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // update password hash
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    // store user preferences
+    private Map<String, String> preferences = new HashMap<>();
+
+    // update preference
+    public void setPreference(String key, String value) {
+        preferences.put(key, value);
+    }
+
+    // retrieve preference
+    public String getPreference(String key) {
+        return preferences.get(key);
     }
 
     // Abstract method implemented by subclasses
