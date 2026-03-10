@@ -2,6 +2,7 @@ package com.mycontactsapp.service;
 
 import com.mycontactsapp.composite.ContactComponent;
 import com.mycontactsapp.model.Contact;
+import com.mycontactsapp.tag.*;
 
 import java.util.List;
 
@@ -15,14 +16,10 @@ public class BulkOperationService {
     }
 
 
-    // bulk tagging
-    public void tagContacts(ContactComponent component, String tag) {
+    public void tagContacts(ContactComponent component, Tag tag) {
 
         component.getContacts()
-                .forEach(contact ->
-                        System.out.println("Tagging " +
-                                contact.getName() + " with " + tag)
-                );
+                .forEach(contact -> contact.addTag(tag));
     }
 
 

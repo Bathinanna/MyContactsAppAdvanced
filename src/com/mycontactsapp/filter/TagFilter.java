@@ -14,6 +14,8 @@ public class TagFilter implements ContactFilter {
     public boolean apply(Contact contact) {
 
         // placeholder until Tag class implemented
-        return contact.getName().toLowerCase().contains(tag);
+    	return contact.getTags()
+    	        .stream()
+    	        .anyMatch(t -> t.getName().equalsIgnoreCase(tag));    
     }
 }

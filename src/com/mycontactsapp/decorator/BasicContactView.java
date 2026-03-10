@@ -3,6 +3,7 @@ package com.mycontactsapp.decorator;
 import com.mycontactsapp.model.Contact;
 import com.mycontactsapp.model.PhoneNumber;
 import com.mycontactsapp.model.EmailAddress;
+import com.mycontactsapp.tag.*;
 
 public class BasicContactView implements ContactView {
 
@@ -29,6 +30,12 @@ public class BasicContactView implements ContactView {
         builder.append("Emails:\n");
         for (EmailAddress e : contact.getEmails()) {
             builder.append(" - ").append(e.getEmail()).append("\n");
+        }
+        
+        builder.append("Tags:\n");
+
+        for(Tag tag : contact.getTags()) {
+            builder.append(" - ").append(tag.getName()).append("\n");
         }
 
         builder.append("Created At: ").append(contact.getCreatedAt()).append("\n");

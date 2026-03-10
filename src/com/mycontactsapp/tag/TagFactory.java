@@ -9,7 +9,7 @@ public class TagFactory {
 
     public static Tag getTag(String name) {
 
-        name = name.toLowerCase();
+        name = name.toLowerCase().trim();
 
         if(!tagPool.containsKey(name)) {
 

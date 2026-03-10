@@ -13,6 +13,8 @@ public class TagSpecification implements SearchCriteria {
     @Override
     public boolean isSatisfied(Contact contact) {
 
-        return contact.getName().toLowerCase().contains(tag);
+    	return contact.getTags()
+    	        .stream()
+    	        .anyMatch(t -> t.getName().equalsIgnoreCase(tag));
     }
 }
