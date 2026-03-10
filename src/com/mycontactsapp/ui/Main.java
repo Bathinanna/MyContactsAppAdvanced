@@ -16,8 +16,9 @@ public class Main {
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("3. Profile Management");
-            System.out.println("4. Contact Management");
-            System.out.println("5. Exit");
+            System.out.println("4. Add Contact");
+            System.out.println("5. View Contacts");
+            System.out.println("6. Exit");
 
             System.out.print("Choose option: ");
             int choice = scanner.nextInt();
@@ -54,8 +55,18 @@ public class Main {
 
                     ContactUI.start();
                     break;
-
+                    
                 case 5:
+                	// check login before contact management
+                	if (!SessionManager.getInstance().isLoggedIn()) {
+                        System.out.println("Please login first.");
+                        break;
+                    }
+                	
+                	ViewContactUI.start();
+                	break;
+
+                case 6:
                     System.out.println("Exiting application...");
                     return;
 

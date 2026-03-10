@@ -14,4 +14,9 @@ public class ContactRepository {
     public static Collection<Contact> getAll() {
         return contacts.values();
     }
+    
+ // find contact by id
+    public static Optional<Contact> findById(String id) {
+        return Optional.ofNullable(contacts.get(id));
+    }
 }
