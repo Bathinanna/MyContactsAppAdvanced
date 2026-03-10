@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
-
+    // UC10 Advanced filtering
     public static void main(String[] args) {
 
         while (true) {
