@@ -28,8 +28,12 @@ public abstract class Contact {
     public String getName() {
         return name;
     }
+    
+    public void setName(String name) {
+    	this.name = name;
+    }
 
-    public List<PhoneNumber> getPhones() {
+	public List<PhoneNumber> getPhones() {
         return phones;
     }
 
