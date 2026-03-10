@@ -23,7 +23,8 @@ public class Main {
             System.out.println("8. Bulk Operatons");
             System.out.println("9. Search Contacts");
             System.out.println("10. Advanced Filtering");
-            System.out.println("11. Exit");
+            System.out.println("11. Create Tag");
+            System.out.println("12. Exit");
 
             System.out.print("Choose option: ");
             int choice = scanner.nextInt();
@@ -122,6 +123,16 @@ public class Main {
                 	break;
                 	
                 case 11:
+                	// check login before contact management
+                	if (!SessionManager.getInstance().isLoggedIn()) {
+                        System.out.println("Please login first.");
+                        break;
+                    }
+                	
+                	TagManagementUI.start();
+                	break;
+                	
+                case 12:
                     System.out.println("Exiting application...");
                     return;
 
