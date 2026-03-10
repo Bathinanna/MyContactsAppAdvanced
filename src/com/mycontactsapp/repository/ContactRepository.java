@@ -31,4 +31,8 @@ public class ContactRepository {
     public static void hardDelete(String id) {
         contacts.remove(id);
     }
+    
+    public static void clear() {
+    	contacts.clear();
+    }
 }
