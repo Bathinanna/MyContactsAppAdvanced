@@ -19,7 +19,8 @@ public class Main {
             System.out.println("4. Add Contact");
             System.out.println("5. View Contacts");
             System.out.println("6. Edit Contacts");
-            System.out.println("7. Exit");
+            System.out.println("7. Delete Contacts");
+            System.out.println("8. Exit");
 
             System.out.print("Choose option: ");
             int choice = scanner.nextInt();
@@ -76,8 +77,18 @@ public class Main {
                 	
                 	EditContactUI.start();
                 	break;
-
+                	
                 case 7:
+                	// check login before contact management
+                	if (!SessionManager.getInstance().isLoggedIn()) {
+                        System.out.println("Please login first.");
+                        break;
+                    }
+                	
+                	DeleteContactUI.start();
+                	break;
+
+                case 8:
                     System.out.println("Exiting application...");
                     return;
 

@@ -12,6 +12,9 @@ public abstract class Contact {
     private List<PhoneNumber> phones = new ArrayList<>();
     private List<EmailAddress> emails = new ArrayList<>();
     private LocalDateTime createdAt;
+    private boolean deleted = false;
+
+    
 
     public Contact(String name) {
         // generate unique id
@@ -56,4 +59,12 @@ public abstract class Contact {
     }
 
     public abstract String getContactType();
+    
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
 }

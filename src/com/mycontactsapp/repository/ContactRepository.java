@@ -15,8 +15,20 @@ public class ContactRepository {
         return contacts.values();
     }
     
- // find contact by id
+    // find contact by id
     public static Optional<Contact> findById(String id) {
         return Optional.ofNullable(contacts.get(id));
+    }
+    
+    // Deletion Logic
+    public static void softDelete(String id) {
+        Contact contact = contacts.get(id);
+        if(contact != null) {
+            contact.setDeleted(true);
+        }
+    }
+
+    public static void hardDelete(String id) {
+        contacts.remove(id);
     }
 }
