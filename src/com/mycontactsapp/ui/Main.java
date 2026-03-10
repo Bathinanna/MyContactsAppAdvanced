@@ -21,7 +21,9 @@ public class Main {
             System.out.println("6. Edit Contacts");
             System.out.println("7. Delete Contacts");
             System.out.println("8. Bulk Operatons");
-            System.out.println("9. Exit");
+            System.out.println("9. Search Contacts");
+            System.out.println("10. Advanced Filtering");
+            System.out.println("11. Exit");
 
             System.out.print("Choose option: ");
             int choice = scanner.nextInt();
@@ -98,8 +100,28 @@ public class Main {
                 	
                 	BulkOperationUI.start();
                 	break;
-
+                
                 case 9:
+                	// check login before contact management
+                	if (!SessionManager.getInstance().isLoggedIn()) {
+                        System.out.println("Please login first.");
+                        break;
+                    }
+                	
+                	SearchContactUI.start();
+                	break;
+                	
+                case 10:
+                	// check login before contact management
+                	if (!SessionManager.getInstance().isLoggedIn()) {
+                        System.out.println("Please login first.");
+                        break;
+                    }
+                	
+                	AdvancedFilterUI.start();
+                	break;
+                	
+                case 11:
                     System.out.println("Exiting application...");
                     return;
 
