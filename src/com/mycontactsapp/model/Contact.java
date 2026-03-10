@@ -1,9 +1,12 @@
 package com.mycontactsapp.model;
+import com.mycontactsapp.tag.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.Set;
+import java.util.HashSet;
 
 public abstract class Contact {
 
@@ -13,7 +16,10 @@ public abstract class Contact {
     private List<EmailAddress> emails = new ArrayList<>();
     private LocalDateTime createdAt;
     private boolean deleted = false;
+    
+    private Set<Tag> tags = new HashSet<>();
 
+   
     
 
     public Contact(String name) {
@@ -67,4 +73,17 @@ public abstract class Contact {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
+    
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void addTag(Tag tag) {
+        tags.add(tag);
+    }
+
+    public void removeTag(Tag tag) {
+        tags.remove(tag);
+    }
+
 }

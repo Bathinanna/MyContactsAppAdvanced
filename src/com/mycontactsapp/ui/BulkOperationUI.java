@@ -5,6 +5,8 @@ import com.mycontactsapp.composite.ContactLeaf;
 import com.mycontactsapp.model.Contact;
 import com.mycontactsapp.repository.ContactRepository;
 import com.mycontactsapp.service.BulkOperationService;
+import com.mycontactsapp.tag.Tag;
+import com.mycontactsapp.tag.TagFactory;
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,6 +20,7 @@ public class BulkOperationUI {
 
         BulkOperationService service = new BulkOperationService();
 
+        // get all active contacts
         List<Contact> contacts =
                 ContactRepository.getAll()
                         .stream()
@@ -40,6 +43,7 @@ public class BulkOperationUI {
 
         ContactGroup selectedGroup = new ContactGroup("SelectedContacts");
 
+        // build composite group from selected contacts
         for (String token : tokens) {
 
             int index = Integer.parseInt(token) - 1;
@@ -52,7 +56,7 @@ public class BulkOperationUI {
             }
         }
 
-        System.out.println("1 Bulk Delete");
+        System.out.println("\n1 Bulk Delete");
         System.out.println("2 Tag Contacts");
         System.out.println("3 Export Contacts");
 
@@ -67,9 +71,14 @@ public class BulkOperationUI {
                 break;
 
             case 2:
-                System.out.print("Enter tag: ");
-                String tag = scanner.nextLine();
+                System.out.print("Enter tag name: ");
+                String tagName = scanner.nextLine();
+
+                Tag tag = TagFactory.getTag(tagName);
+
                 service.tagContacts(selectedGroup, tag);
+
+                System.out.println("Tag applied to selected contacts.");
                 break;
 
             case 3:

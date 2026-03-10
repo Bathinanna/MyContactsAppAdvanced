@@ -6,6 +6,7 @@ import com.mycontactsapp.composite.ContactLeaf;
 import com.mycontactsapp.model.Contact;
 import com.mycontactsapp.service.BulkOperationService;
 import com.mycontactsapp.service.ContactService;
+import com.mycontactsapp.tag.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -74,8 +75,8 @@ public class BulkOperationServiceTest {
 
         group.add(new ContactLeaf(c1));
         group.add(new ContactLeaf(c2));
-
-        bulkService.tagContacts(group, "friends");
+        Tag tag = TagFactory.getTag("friends");
+        bulkService.tagContacts(group, tag);
 
         // Currently tag logic prints output
         // So we simply verify contacts still exist
