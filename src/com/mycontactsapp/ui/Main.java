@@ -20,7 +20,8 @@ public class Main {
             System.out.println("5. View Contacts");
             System.out.println("6. Edit Contacts");
             System.out.println("7. Delete Contacts");
-            System.out.println("8. Exit");
+            System.out.println("8. Bulk Operatons");
+            System.out.println("9. Exit");
 
             System.out.print("Choose option: ");
             int choice = scanner.nextInt();
@@ -87,8 +88,18 @@ public class Main {
                 	
                 	DeleteContactUI.start();
                 	break;
-
+                	
                 case 8:
+                	// check login before contact management
+                	if (!SessionManager.getInstance().isLoggedIn()) {
+                        System.out.println("Please login first.");
+                        break;
+                    }
+                	
+                	BulkOperationUI.start();
+                	break;
+
+                case 9:
                     System.out.println("Exiting application...");
                     return;
 
